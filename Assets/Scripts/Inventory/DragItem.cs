@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class DragItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class DragItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerClickHandler
 {
     [SerializeField]
     private Slot _slot;
@@ -15,6 +15,11 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
 
     [SerializeField]
     private Image _slotImage;
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        _slot.InfoItem();
+    }
 
     public void OnBeginDrag(PointerEventData eventData)
     {

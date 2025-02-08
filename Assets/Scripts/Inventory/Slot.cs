@@ -17,6 +17,9 @@ public class Slot : MonoBehaviour, IDropHandler
     [SerializeField]
     private TMP_Text _countText;
 
+    [SerializeField]
+    private InfoItem _infoItem;
+
     public Item Item {  get { return _item; } }
 
     public int Count { get { return _count; } }
@@ -24,8 +27,27 @@ public class Slot : MonoBehaviour, IDropHandler
     public void AddItemSlot(Item item, int count)
     {
         _item = item;
-        _count = count;
+        
+        if(count > item.StackMax)
+        {
+            _count = item.StackMax;
+        }
+        else if (count > 0) 
+        {
+            _count = count;
+        }
+        else
+        {
+            DestroyItemSlot();
+        }
+        
         DisplayItemSlot();
+    }
+
+    public void InfoItem()
+    {
+        _infoItem.DisplayItemInfo(_item);
+        _infoItem.OpenPanelInfo();
     }
 
     public void DestroyItemSlot()

@@ -16,3 +16,4 @@ MonoBehaviour:
   _icon: {fileID: 3207372165212617614, guid: b6d20ac16e8cd3b4db9d62365d59a8ee, type: 3}
   _stackMax: 6
   _weight: 1
+  _typeCloth: 1

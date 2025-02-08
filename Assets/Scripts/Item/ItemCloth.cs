@@ -7,6 +7,9 @@ public class ItemCloth : Item
     private TypeCloth _typeCloth;
     [SerializeField]
     private int _armor;
+
+    public TypeCloth Type { get { return _typeCloth; } }
+    public int Armor { get { return _armor; } }
 }
 
 public enum TypeCloth
