@@ -1,7 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-public class Slot : MonoBehaviour
+using UnityEngine.EventSystems;
+
+public class Slot : MonoBehaviour, IDropHandler
 {
     [SerializeField]
     private Item _item;
@@ -14,6 +16,10 @@ public class Slot : MonoBehaviour
 
     [SerializeField]
     private TMP_Text _countText;
+
+    public Item Item {  get { return _item; } }
+
+    public int Count { get { return _count; } }
 
     public void AddItemSlot(Item item, int count)
     {
@@ -36,7 +42,7 @@ public class Slot : MonoBehaviour
         _itemIcon.sprite = _item.Icon;
         _itemIcon.enabled = true;
 
-        if (_count > 0)
+        if (_count > 1)
         {
             _countText.text = _count.ToString();
             _countText.enabled = true;
@@ -54,5 +60,17 @@ public class Slot : MonoBehaviour
 
         _itemIcon.sprite = null;
         _countText.text = "0";
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        if(_item == null)
+        {
+            GameObject itemObject = eventData.pointerDrag.gameObject;
+
+            AddItemSlot(itemObject.GetComponent<Slot>().Item, 5);
+
+            itemObject.GetComponent<Slot>().DestroyItemSlot();
+        }
     }
 }
