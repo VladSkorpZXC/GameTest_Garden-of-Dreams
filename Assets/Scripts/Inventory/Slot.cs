@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
 
+
 public class Slot : MonoBehaviour, IDropHandler
 {
     [SerializeField]
@@ -41,6 +42,29 @@ public class Slot : MonoBehaviour, IDropHandler
             DestroyItemSlot();
         }
         
+        DisplayItemSlot();
+    }
+
+    public void UseItem(int value)
+    {
+        if (_count - value > 0)
+        {
+            _count -= value;
+            DisplayItemSlot();
+        }
+        else if(_count - value == 0)
+        {
+            DestroyItemSlot();
+        }
+        else
+        {
+            Debug.Log("Не хватает");
+        }
+    }
+
+    public void FullAmmountSlot()
+    {
+        _count = _item.StackMax;
         DisplayItemSlot();
     }
 
@@ -90,7 +114,7 @@ public class Slot : MonoBehaviour, IDropHandler
         {
             GameObject itemObject = eventData.pointerDrag.gameObject;
 
-            AddItemSlot(itemObject.GetComponent<Slot>().Item, 5);
+            AddItemSlot(itemObject.GetComponent<Slot>().Item, itemObject.GetComponent<Slot>().Count);
 
             itemObject.GetComponent<Slot>().DestroyItemSlot();
         }

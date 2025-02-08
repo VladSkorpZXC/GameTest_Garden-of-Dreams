@@ -27,10 +27,11 @@ public class InfoItem : MonoBehaviour
     private TMP_Text _weightText;
 
     [SerializeField]
-    private Button _actionItemButton;
+    private ButtonAction _actionItemButton;
 
     [SerializeField]
-    private TMP_Text _actionItemText;
+    private TMP_Text _actionItemText; 
+
     public void OpenPanelInfo()
     {
         _panelInfoItem.SetActive(true);
@@ -51,11 +52,13 @@ public class InfoItem : MonoBehaviour
                 _arrmorText.text = " ";
                 if (_itemConsumbles[i].Type == TypeConsumbles.Cartridge)
                 {
+                    _actionItemButton.ChooseAction(item, TypeActionButton.Buy);
                     _actionItemText.text = " упить";
                     break;
                 }
                 else if (_itemConsumbles[i].Type == TypeConsumbles.MedicineBox)
                 {
+                    _actionItemButton.ChooseAction(item, TypeActionButton.Heal);
                     _actionItemText.text = "Ћечить";
                     break;
                 }
@@ -66,6 +69,7 @@ public class InfoItem : MonoBehaviour
         {
             if (_itemCloth[i] == item)
             {
+                _actionItemButton.ChooseAction(item, TypeActionButton.Equip);
                 _arrmorText.text = "+ " + _itemCloth[i].Armor.ToString();
                 _actionItemText.text = "Ёкипировать";
                 break;
