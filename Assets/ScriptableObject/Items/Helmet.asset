@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88027649a8479464e90ae1c8e76d087a, type: 3}
   m_Name: Helmet
   m_EditorClassIdentifier: 
-  _name: "\u041A\u0435\u043F\u043A\u0430"
+  _name: "\u0428\u043B\u0435\u043C"
   _icon: {fileID: 0}
   _stackMax: 1
-  _weight: 0.1
+  _weight: 1
   _typeCloth: 0
-  _armor: 3
+  _armor: 10
