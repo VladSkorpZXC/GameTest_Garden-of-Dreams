@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime;
 
 public class Inventory : MonoBehaviour
 {
@@ -11,14 +12,28 @@ public class Inventory : MonoBehaviour
 
     public List<EquipSlot> EquipSlots {  get { return _equipSlots; } }
 
+    [SerializeField]
+    private List<Item> _items;
 
-    public void AddItemInvetory(Item item)
+    [SerializeField]
+    private HealthCharacter _healthCharacter;
+
+
+    public void Start()
+    {
+        for(int i = 0; i < _items.Count; i++)
+        {
+            AddItemInvetory(_items[i], _items[i].StackMax);
+        }
+    }
+
+    public void AddItemInvetory(Item item, int count)
     {
         for (int i = 0; i < _slots.Count; i++)
         {
             if (_slots[i].Item == null)
             {
-                _slots[i].AddItemSlot(item, 5);
+                _slots[i].AddItemSlot(item, count);
                 break;
             }
         }
@@ -34,7 +49,7 @@ public class Inventory : MonoBehaviour
 
             if (itemClothEquip != null)
             {
-                AddItemInvetory(itemClothEquip);
+                AddItemInvetory(itemClothEquip, 1);
             }
         }
     }
@@ -80,5 +95,10 @@ public class Inventory : MonoBehaviour
                 _slots[i].DestroyItemSlot();
             }
         }
+    }
+
+    public void HealCharacter(int heal)
+    {
+        _healthCharacter.Heal(heal);
     }
 }

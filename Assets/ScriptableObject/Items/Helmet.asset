@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Helmet
   m_EditorClassIdentifier: 
   _name: "\u0428\u043B\u0435\u043C"
-  _icon: {fileID: 0}
+  _icon: {fileID: -1678963479414396807, guid: 5c8b844fb178aa146a8099a27d3c160a, type: 3}
   _stackMax: 1
   _weight: 1
   _type: 1

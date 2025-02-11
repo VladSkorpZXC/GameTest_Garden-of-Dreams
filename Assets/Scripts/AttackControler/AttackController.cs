@@ -40,12 +40,15 @@ public class AttackController : MonoBehaviour
 
     public void Attack()
     {
-        _buttonAttack.enabled = false;
-        _isMoveCharacter = false;
+        if (_healthCharacter.Hp > 0)
+        {
+            _buttonAttack.enabled = false;
+            _isMoveCharacter = false;
 
-        AttackCharacter();
+            AttackCharacter();
 
-        IsMove();
+            IsMove();
+        }
     }
 
     public void AttackCharacter()
@@ -54,25 +57,28 @@ public class AttackController : MonoBehaviour
         {
             if (_inventory.UseItemSlot(_gun, 1))
             {
-                _healthEnemy.Damage(5);
+                _healthEnemy.DamageEnemy(5);
             }
         }
         else if (_typeAttack == TypeAttack.MachineGun)
         {
             if (_inventory.UseItemSlot(_machineGun, 3))
             {
-                _healthEnemy.Damage(9);
+                _healthEnemy.DamageEnemy(9);
             }
         }
     }
 
     public void AttackEnemy()
     {
-        _healthCharacter.ArrmorCharacter(15);
+        if (_healthEnemy.Hp > 0)
+        {
+            _healthCharacter.DamageCharacter(15);
 
-        _isMoveCharacter = true;
+            _isMoveCharacter = true;
 
-        IsMove();
+            IsMove();
+        }
     }
 
     public void IsMove()

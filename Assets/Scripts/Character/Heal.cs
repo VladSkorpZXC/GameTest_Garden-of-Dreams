@@ -16,6 +16,8 @@ public class Health : MonoBehaviour
     [SerializeField]
     private TMP_Text _hpText;
 
+    public int Hp {  get {  return _health; } }
+
     virtual public void Damage(int damaged)
     {
         if (_health - damaged > 0)

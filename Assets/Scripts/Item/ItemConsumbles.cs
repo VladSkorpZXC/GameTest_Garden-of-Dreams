@@ -6,9 +6,6 @@ public class ItemConsumbles : Item
     [SerializeField]
     private TypeConsumbles _typeCloth;
 
-    [SerializeField]
-    private HealthCharacter _healthCharacter;
-
     public TypeConsumbles Type { get { return _typeCloth; } }
 
 
@@ -48,7 +45,7 @@ public class ItemConsumbles : Item
         }
         else if (Type == TypeConsumbles.MedicineBox)
         {
-            _healthCharacter.Heal(6);
+            inventory.HealCharacter(6);
             inventory.UseItemSlot(this, 1);
         }
     }

@@ -8,7 +8,10 @@ public class HealthCharacter : Health
     [SerializeField]
     private bool _hit;
 
-    public void ArrmorCharacter(int damage)
+    [SerializeField]
+    private GameObject _gameOver;
+
+    public void DamageCharacter(int damage)
     {
         if (_hit)
         {
@@ -19,6 +22,15 @@ public class HealthCharacter : Health
             Damage(damage - _inventory.EquipSlots[1].Armor);
         }
 
+        if (Hp <= 0)
+        {
+            Dead();
+        }
         _hit = !_hit;
+    }
+
+    public void Dead()
+    {
+        _gameOver.SetActive(true);
     }
 }

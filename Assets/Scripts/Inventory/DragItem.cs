@@ -18,7 +18,10 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        _slot.InfoItem();
+        if (_slot.Item != null)
+        {
+            _slot.InfoItem();
+        }
     }
 
     public void OnBeginDrag(PointerEventData eventData)

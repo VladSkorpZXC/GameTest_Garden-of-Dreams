@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cap
   m_EditorClassIdentifier: 
   _name: "\u041A\u0435\u043F\u043A\u0430"
-  _icon: {fileID: -2837727968435297238, guid: b6d20ac16e8cd3b4db9d62365d59a8ee, type: 3}
+  _icon: {fileID: 5230771448836709842, guid: 4fd383ab2d945b349815361fdcf345d2, type: 3}
   _stackMax: 1
   _weight: 0.1
   _type: 1
