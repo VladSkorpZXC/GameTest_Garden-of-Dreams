@@ -9,8 +9,8 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     private List<EquipSlot> _equipSlots;
 
-    [SerializeField]
-    private List<ItemCloth> _itemCloth;
+    public List<EquipSlot> EquipSlots {  get { return _equipSlots; } }
+
 
     public void AddItemInvetory(Item item)
     {
@@ -24,22 +24,11 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void EquipItem(Item item)
+    public void EquipItem(ItemCloth itemCloth)
     {
-        ItemCloth itemCloth = null;
-
-        for (int i = 0; i < _itemCloth.Count; i++)
-        {
-            if (_itemCloth[i] == item)
-            {
-                itemCloth = _itemCloth[i];
-                break;
-            }
-        }
-
         for (int i = 0; i < _equipSlots.Count; i++)
         {
-            ItemCloth itemClothEquip = _equipSlots[i].EquipItem(itemCloth);
+            Item itemClothEquip = _equipSlots[i].EquipItem(itemCloth);
 
             DestroyItemSlot(itemCloth);
 
@@ -50,7 +39,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void UseItemSlot(Item item, int value)
+    public bool UseItemSlot(Item item, int value)
     {
         for (int i = 0; i < _slots.Count; ++i)
         {
@@ -58,11 +47,13 @@ public class Inventory : MonoBehaviour
             {
                 if (_slots[i].Item == item)
                 {
-                    _slots[i].UseItem(value);
-                    break;
+                    return _slots[i].UseItem(value);
                 }
             }
         }
+
+        Debug.Log("Нет нужного предмета");
+        return false;
     }
 
     public void FullAmmountSlot(Item item)

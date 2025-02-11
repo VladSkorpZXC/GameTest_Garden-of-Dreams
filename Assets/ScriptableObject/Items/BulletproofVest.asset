@@ -16,5 +16,6 @@ MonoBehaviour:
   _icon: {fileID: -2837727968435297238, guid: b6d20ac16e8cd3b4db9d62365d59a8ee, type: 3}
   _stackMax: 1
   _weight: 10
+  _type: 1
   _typeCloth: 1
-  _armor: 8
+  _armor: 10

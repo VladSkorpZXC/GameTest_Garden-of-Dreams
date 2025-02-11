@@ -9,19 +9,13 @@ public class InfoItem : MonoBehaviour
     private GameObject _panelInfoItem;
 
     [SerializeField]
-    private List<ItemConsumbles> _itemConsumbles;
-
-    [SerializeField]
-    private List<ItemCloth> _itemCloth;
-
-    [SerializeField]
     private TMP_Text _nameText;
 
     [SerializeField]
     private Image _itemIcon;
 
     [SerializeField]
-    private TMP_Text _arrmorText;
+    private TMP_Text _statsText;
 
     [SerializeField]
     private TMP_Text _weightText;
@@ -41,40 +35,14 @@ public class InfoItem : MonoBehaviour
     {
         _nameText.text = item.Name;
         _itemIcon.sprite = item.Icon;
-
         _weightText.text = item.Weight.ToString() + " кг";
 
 
-        for (int i = 0; i < _itemConsumbles.Count; i++)
-        {
-            if (_itemConsumbles[i] == item)
-            {
-                _arrmorText.text = " ";
-                if (_itemConsumbles[i].Type == TypeConsumbles.Cartridge)
-                {
-                    _actionItemButton.ChooseAction(item, TypeActionButton.Buy);
-                    _actionItemText.text = " упить";
-                    break;
-                }
-                else if (_itemConsumbles[i].Type == TypeConsumbles.MedicineBox)
-                {
-                    _actionItemButton.ChooseAction(item, TypeActionButton.Heal);
-                    _actionItemText.text = "Ћечить";
-                    break;
-                }
-            }
-        }
+        _statsText.text = item.Stats();
+        _actionItemText.text = item.ItemActionText();
 
-        for (int i = 0; i < _itemCloth.Count; i++)
-        {
-            if (_itemCloth[i] == item)
-            {
-                _actionItemButton.ChooseAction(item, TypeActionButton.Equip);
-                _arrmorText.text = "+ " + _itemCloth[i].Armor.ToString();
-                _actionItemText.text = "Ёкипировать";
-                break;
-            }
-        }
+
+        _actionItemButton.ChooseAction(item);
     }
 
     public void ClosePanelInfo()

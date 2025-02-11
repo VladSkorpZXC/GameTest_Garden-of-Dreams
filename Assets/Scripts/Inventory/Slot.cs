@@ -45,20 +45,23 @@ public class Slot : MonoBehaviour, IDropHandler
         DisplayItemSlot();
     }
 
-    public void UseItem(int value)
+    public bool UseItem(int value)
     {
         if (_count - value > 0)
         {
             _count -= value;
             DisplayItemSlot();
+            return true;
         }
         else if(_count - value == 0)
         {
             DestroyItemSlot();
+            return true;
         }
         else
         {
             Debug.Log("Не хватает");
+            return false;
         }
     }
 

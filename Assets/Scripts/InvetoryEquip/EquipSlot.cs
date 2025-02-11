@@ -23,7 +23,9 @@ public class EquipSlot : MonoBehaviour
 
     public ItemCloth ItemEquip {  get { return _itemCloth; } }
 
-    public ItemCloth EquipItem(ItemCloth itemCloth)
+    public int Armor { get { return _arrmor; } }
+
+    public Item EquipItem(ItemCloth itemCloth)
     {
         if (itemCloth.Type == _typeCloth)
         {
@@ -34,7 +36,7 @@ public class EquipSlot : MonoBehaviour
             }
             else
             {
-                ItemCloth itemClothInventory = _itemCloth;
+                Item itemClothInventory = _itemCloth;
                 _itemCloth = itemCloth;
                 DisplayItem();
 
