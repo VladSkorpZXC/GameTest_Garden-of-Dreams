@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88027649a8479464e90ae1c8e76d087a, type: 3}
   m_Name: Cap
   m_EditorClassIdentifier: 
+  _idItem: 1
   _name: "\u041A\u0435\u043F\u043A\u0430"
   _icon: {fileID: 5230771448836709842, guid: 4fd383ab2d945b349815361fdcf345d2, type: 3}
   _stackMax: 1

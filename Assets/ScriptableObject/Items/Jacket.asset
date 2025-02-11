@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88027649a8479464e90ae1c8e76d087a, type: 3}
   m_Name: Jacket
   m_EditorClassIdentifier: 
+  _idItem: 5
   _name: "\u043A\u0443\u0440\u0442\u043A\u0430"
   _icon: {fileID: -3607959742507394151, guid: 74ae441243d9d7c4684aa20eb1eafcba, type: 3}
   _stackMax: 1

@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40719cd915c92bf4e9081b0b1657e082, type: 3}
   m_Name: MedicineBox
   m_EditorClassIdentifier: 
+  _idItem: 6
   _name: "\u0410\u043F\u0442\u0435\u0447\u043A\u0430"
   _icon: {fileID: 3207372165212617614, guid: b6d20ac16e8cd3b4db9d62365d59a8ee, type: 3}
   _stackMax: 6
   _weight: 1
+  _type: 0
   _typeCloth: 1

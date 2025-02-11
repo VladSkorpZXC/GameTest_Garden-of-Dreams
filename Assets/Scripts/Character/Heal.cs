@@ -51,4 +51,10 @@ public class Health : MonoBehaviour
         _hpBarIcon.fillAmount = percentage;
         _hpText.text = _health + "/" + _maxHealth;
     }
+
+    public void LoadHealth(int health)
+    {
+        _health = health;
+        UpdateHpBar();
+    }
 }

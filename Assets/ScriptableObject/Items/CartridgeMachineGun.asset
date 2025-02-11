@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40719cd915c92bf4e9081b0b1657e082, type: 3}
   m_Name: CartridgeMachineGun
   m_EditorClassIdentifier: 
+  _idItem: 3
   _name: "\u043F\u0430\u0442\u0440\u043E\u043D\u044B 5.45\u044539 (\u0430\u0432\u0442\u043E\u043C\u0430\u0442\u043D\u044B\u0435)"
   _icon: {fileID: 6495033326967414993, guid: b6d20ac16e8cd3b4db9d62365d59a8ee, type: 3}
   _stackMax: 100
   _weight: 0.03
+  _type: 0
+  _typeCloth: 0

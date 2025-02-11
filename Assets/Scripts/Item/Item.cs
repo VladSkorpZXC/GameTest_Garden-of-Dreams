@@ -4,6 +4,8 @@ using UnityEngine;
 public abstract class Item : ScriptableObject
 {
     [SerializeField]
+    private int _idItem;
+    [SerializeField]
     private string _name;
     [SerializeField]
     private Sprite _icon;
@@ -14,6 +16,8 @@ public abstract class Item : ScriptableObject
     [SerializeField]
     private Type _type;
 
+
+    public int IdItem { get { return _idItem; } }
     public string Name {  get { return _name; } }
     public Sprite Icon { get { return _icon; } }
     public int StackMax { get { return _stackMax; } }
